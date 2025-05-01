@@ -1,10 +1,10 @@
-👗🔍 Fashion Dress Similarity Search Web App
+# 👗🔍 Fashion Dress Similarity Search Web App
 
 This is a Flask-based web application that allows users to upload an image of a fashion item (e.g., a dress) and returns visually similar items from a predefined dataset. It leverages deep learning for feature extraction and cosine similarity for search, enabling an intuitive visual product discovery experience.
 
 ---
 
-🎯 Project Aim
+## 🎯 Project Aim
 
 To build an intelligent fashion image search system that:
 - Identifies visually similar fashion items based on image content.
@@ -13,7 +13,7 @@ To build an intelligent fashion image search system that:
 - Enables both image-based and text-based product search functionalities.
 
 ---
-📽️ Project Preview
+## 📽️ Project Preview
 
 ✨ Experience the app in action by watching the walkthrough video!
 
@@ -21,7 +21,7 @@ To build an intelligent fashion image search system that:
 
 ---
 
-🚀 Features
+## 🚀 Features
 
 - 🖼 Upload an image of a fashion item (dress or similar).
 - ⚙️ Automatically extract deep visual features using a pre-trained EfficientNetB0 model.
@@ -31,7 +31,7 @@ To build an intelligent fashion image search system that:
 
 ---
 
-📁 Project Structure
+## 📁 Project Structure
 
 ```
 fashion-image-search/
@@ -56,28 +56,28 @@ fashion-image-search/
 
 ---
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-**Frontend:**
+### **Frontend:**
 - HTML
 - CSS (via Flask Jinja templates)
 
-**Backend:**
+### **Backend:**
 - Python
 - Flask
 
-**Machine Learning:**
+### **Machine Learning:**
 - TensorFlow (EfficientNetB0 for feature extraction)
 - Scikit-learn (cosine similarity)
 
-**Data Processing:**
+### **Data Processing:**
 - NumPy
 - Pandas
 - Pillow (PIL)
 
 ---
 
-🚀 How to Run the Application
+## 🚀 How to Run the Application
 
 1. **Install dependencies**:
 ```bash
@@ -96,7 +96,7 @@ http://127.0.0.1:5000/
 
 ---
 
-📸 Example Use Case
+## 📸 Example Use Case
 
 1. **Training Mode**: Upload a batch of 10 fashion item images to train the system.
 2. **Search Mode**:
@@ -105,6 +105,6 @@ http://127.0.0.1:5000/
 
 ---
 
-🎉 **Thank You!**
+## 🎉 **Thank You!**
 
 Feel free to explore, fork, or enhance the application. Contributions are welcome!
