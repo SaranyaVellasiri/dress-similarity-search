@@ -2,57 +2,109 @@
 
 This is a Flask-based web application that allows users to upload an image of a fashion item (e.g., a dress) and returns visually similar items from a predefined dataset. It leverages deep learning for feature extraction and cosine similarity for search, enabling an intuitive visual product discovery experience.
 
-------------------------------------------------------------
+---
 
-🎯 AIM:  
-To build a web-based application that helps users find visually similar fashion items (dresses) by uploading an image. This leverages deep learning feature extraction and similarity search to power fashion discovery.
+🎯 Project Aim
 
-🚀 Features:
-- Upload an image of a dress.
-- Automatically extract visual features using a pre-trained deep learning model (EfficientNetB0).
-- Perform similarity search from the dataset using cosine similarity.
-- Return visually similar fashion items with display.
+To build an intelligent fashion image search system that:
+- Identifies visually similar fashion items based on image content.
+- Leverages deep learning for robust feature extraction (using EfficientNetB0).
+- A training module that allows users to upload a batch of 10 images every time to dynamically expand and enhance the searchable fashion image database.
+- Enables both image-based and text-based product search functionalities.
 
-------------------------------------------------------------
+---
+📽️ Project Preview
 
-📁 Project Structure:
+✨ Experience the app in action by watching the walkthrough video!
 
-Fastion-Dress-similarity-search/
+▶️ [Watch Project Walkthrough](https://drive.google.com/your-video-link-here)
+
+---
+
+🚀 Features
+
+- 🖼 Upload an image of a fashion item (dress or similar).
+- ⚙️ Automatically extract deep visual features using a pre-trained EfficientNetB0 model.
+- 🔍 Perform similarity search across the dataset using cosine similarity.
+- 🎯 Display top 5 visually similar results to the uploaded image.
+- 🔤 Filter search results using gender and product text query.
+
+---
+
+📁 Project Structure
+
+```
+fashion-image-search/
 │
-├── app.py                  # Main Flask application
-├── styles.csv              # Metadata or label information for fashion items
-├── requirements.txt        # Python dependencies
-├── README.md               # Project documentation
+├── app.py                      # Main Flask application
+├── styles.csv                  # Product metadata (IDs, gender, names, etc.)
+├── requirements.txt            # Python dependencies
+├── README.md                   # Project documentation
 │
-├── templates/              # HTML Templates
-│   ├── home.html           # Upload interface
-│   └── search.html         # Display results
+├── templates/                  # HTML templates for UI
+│   ├── home.html               # Upload & training page
+│   └── search.html             # Search results display
 │
 ├── static/
-│   ├── uploads/            # User-uploaded images
-│   └── valid_images/       # Fashion images dataset
+│   ├── uploads/                # Temporary user-uploaded images
+│   └── valid_images/           # Dataset images used for similarity comparison
 │
 ├── model/
-│   ├── features/           # Saved extracted features (auto-generated)
-│   └── image_ids/          # Corresponding image IDs (auto-generated)
+│   ├── features                # Saved image feature vectors (auto-generated)
+│   └── image_ids               # Corresponding image file paths (auto-generated)
+```
 
-------------------------------------------------------------
+---
 
-🛠️ Tech Stack:
+🛠️ Tech Stack
 
-Frontend:
+**Frontend:**
 - HTML
-- CSS (via Flask templates)
+- CSS (via Flask Jinja templates)
 
-Backend:
+**Backend:**
 - Python
 - Flask
 
-Machine Learning:
+**Machine Learning:**
 - TensorFlow (EfficientNetB0 for feature extraction)
-- Scikit-learn (Cosine similarity)
+- Scikit-learn (cosine similarity)
 
-Data Processing:
+**Data Processing:**
 - NumPy
 - Pandas
-- Pillow
+- Pillow (PIL)
+
+---
+
+🚀 How to Run the Application
+
+1. **Install dependencies**:
+```bash
+pip install -r requirements.txt
+```
+
+2. **Run the Flask app**:
+```bash
+python app.py
+```
+
+3. **Open in browser**:
+```
+http://127.0.0.1:5000/
+```
+
+---
+
+📸 Example Use Case
+
+1. **Training Mode**: Upload a batch of 10 fashion item images to train the system.
+2. **Search Mode**:
+   - Upload a query image to find visually similar fashion items.
+   - Or, use the search form to filter by gender and/or product name.
+
+---
+
+🎉 **Thank You!**
+
+Feel free to explore, fork, or enhance the application. Contributions are welcome!
