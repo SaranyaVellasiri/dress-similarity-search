@@ -14,14 +14,13 @@ app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['VALID_FOLDER'] = 'static/valid_images'
 app.config['MODEL_FOLDER'] = 'model'
 
-# Load CSV
-styles_df = pd.read_csv('styles.csv')
-
-# Load base model
+# Load styles.csv
+styles_df = pd.read_csv('Styles1.csv')
+# Load model
 base_model = EfficientNetB0(weights='imagenet', include_top=False, pooling='avg')
 model = Model(inputs=base_model.input, outputs=base_model.output)
 
-# Paths
+# File paths
 FEATURES_FILE = os.path.join(app.config['MODEL_FOLDER'], 'features')
 IDS_FILE = os.path.join(app.config['MODEL_FOLDER'], 'image_ids')
 
@@ -56,9 +55,11 @@ def upload():
 
         feature_vector = extract_features(filepath)
         features.append(feature_vector)
-        ids.append(f'valid_images/{filename}')
 
-    if os.path.exists(FEATURES_FILE):
+        image_id = filename.split('.')[0]
+        ids.append(image_id)
+
+    if os.path.exists(FEATURES_FILE) and os.path.exists(IDS_FILE):
         with open(FEATURES_FILE, 'rb') as f:
             existing_features = pickle.load(f)
         with open(IDS_FILE, 'rb') as f:
@@ -71,43 +72,59 @@ def upload():
     with open(IDS_FILE, 'wb') as f:
         pickle.dump(ids, f)
 
-    return render_template('home.html', trained=True, accuracy="N/A")
+    return render_template('home.html', trained=True)
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     results = []
+    selected_gender = None
+
     if request.method == 'POST':
         gender = request.form.get('category')
         query_text = request.form.get('text_query')
         query_image = request.files.get('query')
 
-        if not os.path.exists(FEATURES_FILE) or not os.path.exists(IDS_FILE):
-            return render_template('search.html', similar_results=[])
+        df = styles_df.copy()
 
-        with open(FEATURES_FILE, 'rb') as f:
-            features = pickle.load(f)
-        with open(IDS_FILE, 'rb') as f:
-            ids = pickle.load(f)
+        if gender:
+            selected_gender = gender
+            df = df[df['gender'].str.lower() == gender.lower()]
 
-        if query_image:
+        if query_image and os.path.exists(FEATURES_FILE) and os.path.exists(IDS_FILE):
             path = os.path.join(app.config['UPLOAD_FOLDER'], query_image.filename)
             query_image.save(path)
             query_feat = extract_features(path)
+
+            with open(FEATURES_FILE, 'rb') as f:
+                features = pickle.load(f)
+            with open(IDS_FILE, 'rb') as f:
+                ids = pickle.load(f)
+
             similarities = cosine_similarity([query_feat], features)[0]
             top_indices = similarities.argsort()[::-1][:5]
-            results = [ids[i] for i in top_indices]
+            top_ids = [ids[i] for i in top_indices]
+
+            for img_id in top_ids:
+                img_path = f'valid_images/{img_id}.jpg'
+                full_path = os.path.join('static', img_path)
+                if os.path.exists(full_path):
+                    name_row = styles_df[styles_df['id'] == int(img_id)]
+                    product_name = name_row['productDisplayName'].values[0] if not name_row.empty else "Unknown"
+                    results.append({'image': img_path, 'name': product_name})
 
         elif query_text or gender:
-            df = styles_df.copy()
-            if gender:
-                df = df[df['gender'].str.lower() == gender.lower()]
             if query_text:
                 df = df[df['productDisplayName'].str.contains(query_text, case=False, na=False)]
-            results = [f'valid_images/{id}.jpg' for id in df['id'].astype(str).values[:100]
-                       if os.path.exists(os.path.join('static', 'valid_images', f'{id}.jpg'))]
 
-    return render_template('search.html', similar_results=results)
+            id_name_pairs = df[['id', 'productDisplayName']].dropna().head(100)
+            for _, row in id_name_pairs.iterrows():
+                img_id = str(row['id'])
+                img_path = f'valid_images/{img_id}.jpg'
+                full_path = os.path.join('static', img_path)
+                if os.path.exists(full_path):
+                    results.append({'image': img_path, 'name': row['productDisplayName']})
 
+    return render_template('search.html', similar_results=results, selected_gender=selected_gender)
 if __name__ == '__main__':
-    app.run(
-        )
+    app.run()
+
