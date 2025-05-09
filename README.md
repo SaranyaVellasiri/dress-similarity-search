@@ -13,7 +13,7 @@ To build an intelligent fashion image search system that:
 - Enables both image-based and text-based product search functionalities.
 
 ---
-## 🌟 Project Preview
+## 🌟 Project Preview: UI Walkthrough
 
 ---
 
