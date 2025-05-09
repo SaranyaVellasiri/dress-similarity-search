@@ -13,30 +13,49 @@ To build an intelligent fashion image search system that:
 - Enables both image-based and text-based product search functionalities.
 
 ---
-##🌟 Project Preview 
+## 🌟 Project Preview
 
- # 🖼️ Main Training Page for Incremental Model 
- 
- -This screen shows how users can upload 10 images at a time to train the model incrementally (to handle memory efficiently)
+---
+
+<details>
+<summary>🖼️ Main Training Page for Incremental Model</summary>
+
+- This screen shows how users can upload 10 images at a time to train the model incrementally (to handle memory efficiently).
+
 | **Train Model Page** |
 |:---------------------:|
 | ![Train Model Page](images/home_screen.jpeg) |
 
-#🧍‍♂️🧍‍♀️🧑‍🤝‍🧑 Category Sections 
+</details>
 
--These three screens demonstrate product filtering by category: Men, Women, and Unisex. Each button loads the relevant section.
+---
+
+<details>
+<summary>🧍‍♂️🧍‍♀️🧑‍🤝‍🧑 Category Sections (Men, Women, Unisex)</summary>
+
+- These three screens demonstrate product filtering by category: Men, Women, and Unisex. Each button loads the relevant section.
+
 | **Men's Section** | **Women's Section** | **Unisex Section** |
 |:------------------:|:--------------------:|:-------------------:|
 | ![Men's Section](images/men_screen.jpeg) | ![Women's Section](images/women_screen.jpeg) | ![Unisex Section](images/unisex_screen.jpeg) |
 
-#🔍📷  Search Capabilities 
+</details>
 
--These screens show the app's search features: 
-     1️⃣ Text-based search to retrieve matching products.
-     2️⃣ Image-based search to find top-5 visually similar items. -->
+---
+
+<details>
+<summary>🔍📷 Search Capabilities (Text & Image Based)</summary>
+
+- These screens show the app's search features:  
+  1️⃣ Text-based search to retrieve matching products.  
+  2️⃣ Image-based search to find top-5 visually similar items.
+
 | **Text-Based Search** | **Image-Based Search** |
 |:----------------------:|:-----------------------:|
 | ![Text Search](images/text_search_screen.jpeg) | ![Image Search](images/image_search_screen.jpeg) |
+
+</details>
+
 
 ---
 
