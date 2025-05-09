@@ -16,19 +16,22 @@ To build an intelligent fashion image search system that:
 ##🌟 Project Preview 
 
  # 🖼️ Main Training Page for Incremental Model 
- This screen shows how users can upload 10 images at a time to train the model incrementally (to handle memory efficiently)
+ 
+ -This screen shows how users can upload 10 images at a time to train the model incrementally (to handle memory efficiently)
 | **Train Model Page** |
 |:---------------------:|
 | ![Train Model Page](images/home_screen.jpeg) |
 
 #🧍‍♂️🧍‍♀️🧑‍🤝‍🧑 Category Sections 
-These three screens demonstrate product filtering by category: Men, Women, and Unisex. Each button loads the relevant section.
+
+-These three screens demonstrate product filtering by category: Men, Women, and Unisex. Each button loads the relevant section.
 | **Men's Section** | **Women's Section** | **Unisex Section** |
 |:------------------:|:--------------------:|:-------------------:|
 | ![Men's Section](images/men_screen.jpeg) | ![Women's Section](images/women_screen.jpeg) | ![Unisex Section](images/unisex_screen.jpeg) |
 
 #🔍📷  Search Capabilities 
-These screens show the app's search features: 
+
+-These screens show the app's search features: 
      1️⃣ Text-based search to retrieve matching products.
      2️⃣ Image-based search to find top-5 visually similar items. -->
 | **Text-Based Search** | **Image-Based Search** |
