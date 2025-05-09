@@ -19,13 +19,13 @@ To build an intelligent fashion image search system that:
 <!-- This screen shows how users can upload 10 images at a time to train the model incrementally (to handle memory efficiently). -->
 | **Train Model Page** |
 |:---------------------:|
-| ![Train Model Page](images/home_screen.png) |
+| ![Train Model Page](images/home_screen.jpeg) |
 
 <!-- 🧍‍♂️🧍‍♀️🧑‍🤝‍🧑 Second Row: Category Sections -->
 <!-- These three screens demonstrate product filtering by category: Men, Women, and Unisex. Each button loads the relevant section. -->
 | **Men's Section** | **Women's Section** | **Unisex Section** |
 |:------------------:|:--------------------:|:-------------------:|
-| ![Men's Section](images/men_screen.png) | ![Women's Section](images/women_screen.png) | ![Unisex Section](images/unisex_screen.png) |
+| ![Men's Section](images/men_screen.jpeg) | ![Women's Section](images/women_screen.jpeg) | ![Unisex Section](images/unisex_screen.jpeg) |
 
 <!-- 🔍📷 Third Row: Search Capabilities -->
 <!-- These screens show the app's search features: 
@@ -33,7 +33,7 @@ To build an intelligent fashion image search system that:
      2️⃣ Image-based search to find top-5 visually similar items. -->
 | **Text-Based Search** | **Image-Based Search** |
 |:----------------------:|:-----------------------:|
-| ![Text Search](images/text_search_screen.png) | ![Image Search](images/image_search_screen.png) |
+| ![Text Search](images/text_search_screen.jpeg) | ![Image Search](images/image_search_screen.jpeg) |
 
 ---
 
